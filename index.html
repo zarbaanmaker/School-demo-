@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Star English School | Liaquatabad Town</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #ffd700;
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), 
+                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Reviews / Testimonials */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--secondary);
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            margin-bottom: 15px;
+        }
+
+        .parent-name {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Contact & Form Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            outline: none;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #1e293b;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Mobile Styling */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-star"></i> BRIGHT STAR
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Facilities</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Bright Star English School</h1>
+        <p>Providing Quality Education, Moral Values & Bright Future in Liaquatabad Town, Karachi.</p>
+        <a href="#contact" class="btn"><i class="fa-solid fa-paper-plane"></i> Apply For Admission</a>
+    </section>
+
+    <!-- Facilities / Features -->
+    <section id="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-user-graduate"></i>
+                <h3>Experienced Faculty</h3>
+                <p>Dedicated teachers committed to nurturing every child's potential with care.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-microscope"></i>
+                <h3>Modern Science & Computer Lab</h3>
+                <p>Fully equipped practical labs for hands-on technical training and science experiments.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <h3>Oxford Curriculum</h3>
+                <p>Updated syllabus focused on conceptual learning and fluent English communication.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Safe & Secure Environment</h3>
+                <p>CCTV monitored campus ensuring full safety and security for students.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parents Reviews -->
+    <section id="reviews" style="background: var(--secondary);">
+        <h2 class="section-title">What Parents Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Best school in Liaquatabad area. The staff is very cooperative and my child's English communication improved significantly."</p>
+                <div class="parent-name">- Muhammad Rizwan (Parent)</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Quality education at affordable fees. Discipline and study environment are top-notch!"</p>
+                <div class="parent-name">- Mrs. Shahida Tariq (Parent)</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Great focus on extracurricular activities and character building along with academics."</p>
+                <div class="parent-name">- Kamran Ahmed (Parent)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Admission Form -->
+    <section id="contact">
+        <h2 class="section-title">Contact & Admission Inquiry</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Liaquatabad Town, Karachi, Pakistan</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+92 300 0000000</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@brightstar.edu.pk</p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="inquiryForm">
+                <input type="text" placeholder="Student Name" required>
+                <input type="text" placeholder="Parent Contact Number" required>
+                <input type="text" placeholder="Class Seeking Admission In" required>
+                <textarea rows="4" placeholder="Your Message / Query"></textarea>
+                <button type="submit" class="btn">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bright Star English School. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! School management will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+  </html>
+  
